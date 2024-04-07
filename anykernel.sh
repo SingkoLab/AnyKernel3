@@ -4,15 +4,15 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=BlackSapphire kernel by Aqua 
+kernel.string=BlackSapphire kernel by Tahu Gehots 
 do.devicecheck=1
 do.modules=0
 do.systemless=1
 do.cleanup=1
 do.cleanuponabort=0
-device.name1=lancelot 
-device.name2=lava
-device.name3=shiva
+device.name1=merlin 
+device.name2=merlinx
+device.name3=merlinnfc
 device.name4=
 device.name5=
 supported.versions=
