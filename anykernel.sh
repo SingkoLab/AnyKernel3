@@ -4,15 +4,15 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=Batubulan Broken Kernel by Tahu Gehot | SKG
+kernel.string=Samsung S8+ Singko Kernel by kristoforusapm(@kristoforusapm)
 do.devicecheck=1
 do.modules=0
 do.systemless=1
 do.cleanup=1
 do.cleanuponabort=0
-device.name1=moonstone 
-device.name2=sunstone
-device.name3=stone
+device.name1=dream2lte
+device.name2=
+device.name3=
 device.name4=
 device.name5=
 supported.versions=
@@ -20,8 +20,8 @@ supported.patchlevels=
 '; } # end properties
 
 # shell variables
-block=/dev/block/by-name/boot;
-is_slot_device=1;
+block=/dev/block/platform/11120000.ufs/by-name/BOOT;
+is_slot_device=0;
 ramdisk_compression=auto;
 
 
