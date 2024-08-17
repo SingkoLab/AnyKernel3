@@ -4,15 +4,15 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=BlackSapphire kernel by Tahu Gehots 
+kernel.string=N0kernel
 do.devicecheck=1
 do.modules=0
 do.systemless=1
 do.cleanup=1
 do.cleanuponabort=0
-device.name1=merlin 
-device.name2=merlinx
-device.name3=merlinnfc
+device.name1=munch 
+device.name2=
+device.name3=
 device.name4=
 device.name5=
 supported.versions=
@@ -21,7 +21,7 @@ supported.patchlevels=
 
 # shell variables
 block=/dev/block/by-name/boot;
-is_slot_device=0;
+is_slot_device=1;
 ramdisk_compression=auto;
 
 
