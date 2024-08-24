@@ -11,17 +11,17 @@ do.systemless=1
 do.cleanup=1
 do.cleanuponabort=0
 device.name1=dream2lte
-device.name2=
-device.name3=
-device.name4=
-device.name5=
+device.name2=dreamlte
+device.name3=greatlte
+device.name4=star2lte
+device.name5=starlte
 supported.versions=
 supported.patchlevels=
 '; } # end properties
 
 # shell variables
 block=/dev/block/platform/11120000.ufs/by-name/BOOT;
-is_slot_device=0;
+is_slot_device=auto;
 ramdisk_compression=auto;
 
 
