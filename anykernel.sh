@@ -4,13 +4,13 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=SingkoKernel based on Greenforce Project 
+kernel.string=SingkoKernel
 do.devicecheck=1
 do.modules=0
 do.systemless=1
 do.cleanup=1
 do.cleanuponabort=0
-device.name1=spes
+device.name1=fire
 supported.versions=
 supported.patchlevels=
 '; } # end properties
