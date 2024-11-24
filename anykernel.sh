@@ -4,17 +4,17 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=BlackSapphire kernel by Aqua 
+kernel.string=SingkoLab kernel by Kristoforusapm
 do.devicecheck=1
 do.modules=0
 do.systemless=1
 do.cleanup=1
 do.cleanuponabort=0
-device.name1=lancelot 
-device.name2=lava
-device.name3=shiva
-device.name4=
-device.name5=
+device.name1=wt88047 
+device.name2=wt86047
+device.name3=MSM8916
+device.name4=2014817
+device.name5=2014813
 supported.versions=
 supported.patchlevels=
 '; } # end properties
