@@ -1,42 +1,41 @@
-# AnyKernel3 Ramdisk Mod Script
-# osm0sis @ xda-developers
+### AnyKernel3 Ramdisk Mod Script
+## osm0sis @ xda-developers
 
-## AnyKernel setup
-# begin properties
+### AnyKernel setup
+# global properties
 properties() { '
-kernel.string=SingkoKernel
+kernel.string=SingkoKernel by @nullptr03v2
 do.devicecheck=1
-do.modules=0
-do.systemless=1
-do.cleanup=1
-do.cleanuponabort=0
-device.name1=moonstone 
+device.name1=moonstone
 device.name2=sunstone
-device.name3=stone
-device.name4=
-device.name5=
-supported.versions=
-supported.patchlevels=
+device.name3=gemstone
+device.name4=stone
+do.cleanup=1
 '; } # end properties
 
-# shell variables
-block=/dev/block/by-name/boot;
-is_slot_device=1;
-ramdisk_compression=auto;
+### AnyKernel install
+# boot shell variables
+block=boot;
+is_slot_device=auto;
+no_block_display=1;
 
-
-## AnyKernel methods (DO NOT CHANGE)
-# import patching functions/variables - see for reference
+# import functions/variables and setup patching - see for reference (DO NOT REMOVE)
 . tools/ak3-core.sh;
 
+# boot install
+split_boot;
+flash_boot;
+flash_dtbo;
+## end boot install
 
-## AnyKernel file attributes
-# set permissions/ownership for included ramdisk files
-set_perm_recursive 0 0 755 644 $ramdisk/*;
-set_perm_recursive 0 0 750 750 $ramdisk/init* $ramdisk/sbin;
+# vendor_boot shell variables
+block=vendor_boot;
+is_slot_device=auto;
 
+# reset for vendor_boot patching
+reset_ak;
 
-## AnyKernel install
-dump_boot;
-write_boot;
-## end install
+# vendor_boot install
+split_boot;
+flash_boot;
+## end vendor_boot install
