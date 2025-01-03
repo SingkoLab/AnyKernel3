@@ -6,10 +6,7 @@
 properties() { '
 kernel.string=SingkoKernel by @nullptr03v2
 do.devicecheck=1
-device.name1=moonstone
-device.name2=sunstone
-device.name3=gemstone
-device.name4=stone
+device.name1=taoyao
 do.cleanup=1
 '; } # end properties
 
@@ -25,17 +22,17 @@ no_block_display=1;
 # boot install
 split_boot;
 flash_boot;
-flash_dtbo;
+#flash_dtbo;
 ## end boot install
 
 # vendor_boot shell variables
-block=vendor_boot;
-is_slot_device=auto;
+#block=vendor_boot;
+#is_slot_device=auto;
 
 # reset for vendor_boot patching
-reset_ak;
+#reset_ak;
 
 # vendor_boot install
-split_boot;
-flash_boot;
+#split_boot;
+#flash_boot;
 ## end vendor_boot install
