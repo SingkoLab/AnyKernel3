@@ -25,18 +25,3 @@ no_block_display=1;
 split_boot;
 flash_boot;
 ## end boot install
-
-# dtbo install
-flash_dtbo
-## end of dtbo install
-
-# vendor_boot shell variables
-block=vendor_boot;
-
-# reset for vendor_boot patching
-reset_ak;
-
-# vendor_boot install
-split_boot;
-flash_boot;
-## end vendor_boot install
