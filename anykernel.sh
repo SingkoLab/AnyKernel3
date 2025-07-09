@@ -26,6 +26,10 @@ split_boot;
 flash_boot;
 ## end boot install
 
+# dtbo install
+flash_dtbo
+## end of dtbo install
+
 # vendor_boot shell variables
 block=vendor_boot;
 
@@ -36,7 +40,3 @@ reset_ak;
 split_boot;
 flash_boot;
 ## end vendor_boot install
-
-# dtbo install
-dd if=/dev/zero of=/dev/block/by-name/dtbo$slot conv=fsync count=1 bs=$(blockdev --getsize64 /dev/block/by-name/dtbo$slot);
-## end of dtbo install
