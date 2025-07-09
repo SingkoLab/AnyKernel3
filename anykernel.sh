@@ -4,12 +4,11 @@
 ### AnyKernel setup
 # global properties
 properties() { '
-kernel.string=SingkoKernel by @nullptr03v2
+kernel.string=
 do.devicecheck=1
 device.name1=moonstone
 device.name2=sunstone
-device.name3=gemstone
-device.name4=stone
+device.name3=stone
 do.cleanup=1
 '; } # end properties
 
@@ -25,12 +24,10 @@ no_block_display=1;
 # boot install
 split_boot;
 flash_boot;
-flash_dtbo;
 ## end boot install
 
 # vendor_boot shell variables
 block=vendor_boot;
-is_slot_device=auto;
 
 # reset for vendor_boot patching
 reset_ak;
@@ -39,3 +36,7 @@ reset_ak;
 split_boot;
 flash_boot;
 ## end vendor_boot install
+
+# dtbo install
+dd if=/dev/zero of=/dev/block/by-name/dtbo$slot conv=fsync count=1 bs=$(blockdev --getsize64 /dev/block/by-name/dtbo$slot);
+## end of dtbo install
