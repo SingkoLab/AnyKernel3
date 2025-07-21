@@ -4,8 +4,8 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=BlackSapphire kernel by Aqua 
-do.devicecheck=1
+kernel.string=SingkoLab Kernel by @kristoforusapm
+do.devicecheck=0
 do.modules=0
 do.systemless=1
 do.cleanup=1
@@ -20,7 +20,7 @@ supported.patchlevels=
 '; } # end properties
 
 # shell variables
-block=/dev/block/by-name/boot;
+block=boot;
 is_slot_device=0;
 ramdisk_compression=auto;
 
