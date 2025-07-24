@@ -9,6 +9,9 @@ do.devicecheck=1
 device.name1=moonstone
 device.name2=sunstone
 device.name3=stone
+device.name4=veux
+device.name5=miholi
+device.name6=peux
 do.cleanup=1
 '; } 
 
