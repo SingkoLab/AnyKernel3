@@ -17,7 +17,6 @@ do.cleanup=1
 block=boot;
 is_slot_device=auto;
 no_block_display=1;
-kernel_flash_dtb=no
 
 # import functions/variables and setup patching - see for reference (DO NOT REMOVE)
 . tools/ak3-core.sh;
@@ -28,16 +27,16 @@ flash_boot;
 ## end boot install
 
 # dtb install
-if [ "$kernel_flash_dtb" = "yes" ]; then
-  if [ -f dtbo ]; then
-    flash_dtbo
-  elif [ -f dtb ]; then
-    block=vendor_boot;
-    reset_ak;
-    split_boot;
-    flash_boot;
-  else
-    ui_print " " "No dtb or dtbo file found. Skipping."
-  fi
+# auto check the dtb & dtbo file so
+# we don't need another check
+if [ -f dtbo ]; then
+  flash_dtbo
+elif [ -f dtb ]; then
+  block=vendor_boot;
+  reset_ak;
+  split_boot;
+  flash_boot;
+else
+  ui_print " " "No dtb or dtbo file found. Skipping."
 fi
 ## end dtb install
