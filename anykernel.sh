@@ -6,9 +6,8 @@
 properties() { '
 kernel.string=
 do.devicecheck=1
-device.name1=moonstone
-device.name2=sunstone
-device.name3=stone
+device.name1=rosemary
+device.name2=begonia
 do.cleanup=1
 '; } # end properties
 
