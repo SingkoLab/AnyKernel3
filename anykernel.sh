@@ -25,18 +25,3 @@ no_block_display=1;
 split_boot;
 flash_boot;
 ## end boot install
-
-# dtb install
-# auto check the dtb & dtbo file so
-# we don't need another check
-if [ -f dtbo ]; then
-  flash_dtbo
-elif [ -f dtb ]; then
-  block=vendor_boot;
-  reset_ak;
-  split_boot;
-  flash_boot;
-else
-  ui_print " " "No dtb or dtbo file found. Skipping."
-fi
-## end dtb install
