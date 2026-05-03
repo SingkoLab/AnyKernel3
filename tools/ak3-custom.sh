@@ -2,7 +2,7 @@
 ## dereference23@github.com
 ## edited by nullptr@singkolab.my.id
 
-check_vendor_hals() {
+check_patches() {
   grep -q "/vendor " /proc/mounts || mount /vendor;
   if [ $? -eq 0 ]; then
     if grep -qs displayfeature /vendor/bin/hw/vendor.qti.hardware.display.composer-service; then
@@ -16,6 +16,18 @@ check_vendor_hals() {
       fdtput $AKHOME/dtb /soc/spi@4a88000/irled@0 compatible ir-spi -t s;
       dtb_patched=1;
     fi;
+  fi;
+
+  grep -q "/system " /proc/mounts || mount /system;
+  if [ $? -eq 0 ]; then
+    incremental=$(grep '^ro.build.version.incremental=' /system/build.prop | cut -d'=' -f2);
+    case "$incremental" in
+      V816*|OS1*)
+        fdtput -t i "$AKHOME/dtb" /kernel-config userfaultfd 0
+        fdtput -t i "$AKHOME/dtb" /kernel-config unprivileged-userfaultfd 0
+        dtb_patched=1
+        ;;
+    esac
   fi;
 }
 
