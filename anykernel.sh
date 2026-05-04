@@ -53,7 +53,7 @@ reset_ak;
 
 # vendor_boot install
 split_boot;
-check_vendor_hals;
+check_patches;
 flash_boot;
 ## end vendor_boot install
 
