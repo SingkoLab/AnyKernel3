@@ -5,7 +5,7 @@
 # global properties
 properties() { '
 kernel.string=
-do.devicecheck=1
+do.devicecheck=0
 do.cleanup=1
 device.name1=moonstone
 device.name2=sunstone
