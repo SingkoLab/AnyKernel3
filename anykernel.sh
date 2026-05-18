@@ -17,6 +17,7 @@ device.name4=gemstone
 BLOCK=boot;
 IS_SLOT_DEVICE=auto;
 NO_BLOCK_DISPLAY=1;
+RAMDISK_COMPRESSION=auto;
 
 # import functions/variables and setup patching - see for reference (DO NOT REMOVE)
 . tools/ak3-core.sh;
@@ -28,7 +29,7 @@ ui_print "  \____ \| |___| ||  / \  |  | |     | |   "
 ui_print "  ____/ /|  ___  || /   \ | _| |_    | |   "
 ui_print " |_____/ |_|   |_||_|   |_||_____|   |_|   "
 ui_print "-------------------------------------------"
-ui_print "        pokok e joget pokok e joget        "
+ui_print "        sawit menyawit menjadi satu        "
 ui_print "-------------------------------------------"
 
 ui_print " "
