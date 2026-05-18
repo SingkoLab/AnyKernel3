@@ -42,7 +42,7 @@ flash_boot;
 
 ui_print "Patching sawit dtbo partition..."
 # dtbo install
-erase_dtbo
+flash_dtbo_manual
 ## end dtbo install
 
 ui_print "Patching sawit vendor_boot partition..."

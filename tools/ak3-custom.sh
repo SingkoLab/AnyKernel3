@@ -20,3 +20,10 @@ check_patches() {
 erase_dtbo() {
   dd if=/dev/zero of=/dev/block/by-name/dtbo$SLOT conv=fsync count=1 bs=$(blockdev --getsize64 /dev/block/by-name/dtbo$SLOT);
 }
+
+flash_dtbo_manual() {
+  local DTBO_BLOCK=/dev/block/by-name/dtbo$SLOT;
+  if [ -f $AKHOME/dtbo.img ]; then
+    cat $AKHOME/dtbo.img > $DTBO_BLOCK;
+  fi;
+}
