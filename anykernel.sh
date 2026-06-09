@@ -23,29 +23,34 @@ RAMDISK_COMPRESSION=auto;
 . tools/ak3-core.sh;
 . tools/ak3-custom.sh;
 
-ui_print "   _____  _______  _  _  _  _____  _______ "
-ui_print "  / ____||  ___  || |/ \| ||_   _||__   __|"
-ui_print "  \____ \| |___| ||  / \  |  | |     | |   "
-ui_print "  ____/ /|  ___  || /   \ | _| |_    | |   "
-ui_print " |_____/ |_|   |_||_|   |_||_____|   |_|   "
-ui_print "-------------------------------------------"
-ui_print "        sawit menyawit menjadi satu        "
-ui_print "-------------------------------------------"
+DEVICE=$(getprop ro.product.device)
+MARKET_NAME=$(getprop ro.product.vendor.marketname)
+
+[ -z "$DEVICE" ] && DEVICE="unknown"
+[ -z "$MARKET_NAME" ] && MARKET_NAME="Unknown Device"
 
 ui_print " "
+ui_print "   ███████╗██╗███╗   ██╗ ██████╗ ██╗  ██╗ ██████╗ "
+ui_print "   ██╔════╝██║████╗  ██║██╔════╝ ██║ ██╔╝██╔═══██╗"
+ui_print "   ███████╗██║██╔██╗ ██║██║  ███╗█████╔╝ ██║   ██║"
+ui_print "   ╚════██║██║██║╚██╗██║██║   ██║██╔═██╗ ██║   ██║"
+ui_print "   ███████║██║██║ ╚████║╚██████╔╝██║  ██╗╚██████╔╝"
+ui_print "   ╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ "
+ui_print " "
+ui_print "              Singko Kernel"
+ui_print " "
+ui_print "       Device : $MARKET_NAME ($DEVICE)"
+ui_print " "
 
-ui_print "Patching sawit boot partition..."
 # boot install
 split_boot;
 flash_boot;
 ## end boot install
 
-ui_print "Patching sawit dtbo partition..."
 # dtbo install
 erase_dtbo
 ## end dtbo install
 
-ui_print "Patching sawit vendor_boot partition..."
 # vendor_boot shell variables
 BLOCK=vendor_boot;
 
@@ -57,5 +62,3 @@ split_boot;
 check_patches;
 flash_boot;
 ## end vendor_boot install
-
-ui_print "Sawit installed, enjoy the Sawit feels."
