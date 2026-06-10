@@ -5,12 +5,8 @@
 # global properties
 properties() { '
 kernel.string=
-do.devicecheck=1
+do.devicecheck=0
 do.cleanup=1
-device.name1=moonstone
-device.name2=sunstone
-device.name3=stone
-device.name4=gemstone
 '; } # end properties
 
 # boot shell variables
@@ -18,13 +14,14 @@ BLOCK=boot;
 IS_SLOT_DEVICE=auto;
 NO_BLOCK_DISPLAY=1;
 RAMDISK_COMPRESSION=auto;
+PATCH_VBMETA_FLAG=auto
+NO_MAGISK_CHECK=1
 
 # import functions/variables and setup patching - see for reference (DO NOT REMOVE)
 . tools/ak3-core.sh;
-. tools/ak3-custom.sh;
 
 DEVICE=$(getprop ro.product.device)
-MARKET_NAME=$(getprop ro.product.vendor.marketname)
+MARKET_NAME=$(getprop ro.product.marketname)
 
 [ -z "$DEVICE" ] && DEVICE="unknown"
 [ -z "$MARKET_NAME" ] && MARKET_NAME="Unknown Device"
@@ -43,22 +40,11 @@ ui_print "       Device : $MARKET_NAME ($DEVICE)"
 ui_print " "
 
 # boot install
-split_boot;
-flash_boot;
+if [ -L "/dev/block/bootdevice/by-name/init_boot_a" -o -L "/dev/block/by-name/init_boot_a" ]; then
+    split_boot # for devices with init_boot ramdisk
+    flash_boot # for devices with init_boot ramdisk
+else
+    dump_boot # use split_boot to skip ramdisk unpack, e.g. for devices with init_boot ramdisk
+    write_boot # use flash_boot to skip ramdisk repack, e.g. for devices with init_boot ramdisk
+fi
 ## end boot install
-
-# dtbo install
-erase_dtbo
-## end dtbo install
-
-# vendor_boot shell variables
-BLOCK=vendor_boot;
-
-# reset for vendor_boot patching
-reset_ak;
-
-# vendor_boot install
-split_boot;
-check_patches;
-flash_boot;
-## end vendor_boot install
