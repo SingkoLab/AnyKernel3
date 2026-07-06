@@ -11,7 +11,7 @@ check_patches() {
       dtb_patched=1;
     fi;
     if [ -e /vendor/lib64/hw/consumerir.default.so -o -e /vendor/lib64/hw/consumerir.holi.so ]; then
-      fdtput $AKHOME/dtb /soc/spi@4a88000/irled@0 compatible ir-spi -t s;
+      fdtput $AKHOME/dtb /soc/spi@4a88000/irled@0 compatible ir-spi-xiaomi -t s;
       dtb_patched=1;
     fi;
   fi;
