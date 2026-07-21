@@ -17,11 +17,13 @@ RAMDISK_COMPRESSION=auto;
 
 # import functions/variables and setup patching - see for reference (DO NOT REMOVE)
 . tools/ak3-core.sh;
+. tools/ak3-custom.sh;
 
 ui_print "Ximi is bad at OSS, hope this run perfectly without Ximi cancer."
 
 # boot install
 split_boot;
+inject_cmdline
 flash_boot;
 flash_dtbo;
 ## end boot install
@@ -34,5 +36,6 @@ reset_ak;
 
 # vendor_boot install
 split_boot;
+inject_cmdline
 flash_boot;
 ## end vendor_boot install
