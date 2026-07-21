@@ -20,10 +20,10 @@ inject_cmdline() {
 
   if [ "$vendor_mounted" -eq 1 ]; then
     if grep -qs displayfeature /vendor/bin/hw/vendor.qti.hardware.display.composer-service; then
-      patch_cmdline kernel.xiaomi_displayfeature kernel.xiaomi_displayfeature=1
+      patch_cmdline xiaomi.displayfeature xiaomi.displayfeature
     fi;
     if [ -e /vendor/lib64/hw/consumerir.default.so -o -e /vendor/lib64/hw/consumerir.lahaina.so ]; then
-      patch_cmdline kernel.xiaomi_ir_spi kernel.xiaomi_ir_spi=1
+      patch_cmdline xiaomi.ir_spi xiaomi.ir_spi
     fi;
   fi;
 }
