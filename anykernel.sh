@@ -23,7 +23,6 @@ ui_print "Ximi is bad at OSS, hope this run perfectly without Ximi cancer."
 
 # boot install
 split_boot;
-inject_cmdline
 flash_boot;
 flash_dtbo;
 ## end boot install
